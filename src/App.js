@@ -12,16 +12,14 @@ class App extends Component {
             <Route path='/connect' component={Connect}>
           <IndexRoute component={Twitterfeed} />
             <Route path='instagram' component={Instagram} />
-            <Route path='query' component={Query}>
-          </Route>
-          <Route path='/explore(/:name)' component={Connect} />
+              </Route>
+          <Route path='/explore' component={Explore} />
           <Route path='/map' component={Map}>
             <IndexRoute components={{ title: Title, subTitle: SubTitle}} />
           </Route>
           <Route path='*' component={NotFound} />
       </Route>
-    </Route>
-  </Router>
+    </Router>
     )
   }
 }
@@ -34,7 +32,7 @@ const SubTitle = () => (
   <h2>Hello from subTitle</h2>
 )
 
-const NamedComponents = (props) => (
+const namedComponent = (props) => (
   <div>
     {props.title}<br />
     {props.subTitle}
@@ -72,7 +70,7 @@ const Connect = (props) => (
 const Instagram = () => <h3>Instagram Feed</h3>
 const Twitterfeed = () => <h3>Twitter Feed</h3>
 
-const Query = (props) => (
+const Map = (props) => (
   <h2> {props.location.query.message} </h2>
 )
 
