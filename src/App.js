@@ -9,11 +9,11 @@ class App extends Component {
       <Router history={hashHistory}>
         <Route path='/' component={Container}>
           <IndexRoute component={Home} />
+            <Route path='/explore' component={Explore} />
             <Route path='/connect' component={Connect}>
           <IndexRoute component={Twitterfeed} />
-            <Route path='instagram' component={Instagram} />
-              </Route>
-          <Route path='/explore' component={Explore} />
+              <Route path='instagram' component={Instagram} />
+            </Route>
           <Route path='/map' component={Map}>
             <IndexRoute components={{ title: Title, subTitle: SubTitle}} />
           </Route>
@@ -44,7 +44,7 @@ const Nav = () => (
     <IndexLink activeClassName='active' to='/'>Home</IndexLink>&nbsp;
     <IndexLink activeClassName='active' to='/explore'>Explore</IndexLink>&nbsp;
     <IndexLink activeClassName='active' to='/connect'>Connect</IndexLink>&nbsp;
-    <IndexLink activeClassName='active' to='/namedComponent'>Map</IndexLink>&nbsp;
+    <IndexLink activeClassName='active' to='/map'>Map</IndexLink>&nbsp;
     <IndexLink activeClassName='active' to='social'>Social</IndexLink>&nbsp;
   </div>
 )
@@ -57,13 +57,13 @@ const Home = () => <h1>Parks App Home</h1>
 
 const Explore = (props) => <div>
   <br />
-<h1>We are located at 4117 Castleman Ave.</h1>
+<h1>Explore National Parks</h1>
 {props.children}
 </div>
 
 const Connect = (props) => (
   <div>
-    <h3>Welcome to the Connect page</h3>
+    <h3>Connect with Other Parks People</h3>
   </div>
 
 )
@@ -71,7 +71,9 @@ const Instagram = () => <h3>Instagram Feed</h3>
 const Twitterfeed = () => <h3>Twitter Feed</h3>
 
 const Map = (props) => (
-  <h2> {props.location.query.message} </h2>
+  <div><h2>Find a Park </h2>
+  <h2>Mark Your Park</h2>
+</div>
 )
 
 const NotFound = () => <h1> 404...This page is not found.</h1>
